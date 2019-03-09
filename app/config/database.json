@@ -1,0 +1,8 @@
+{
+  "username": "root",
+  "password": "",
+  "database": "todotasks",
+  "host": "localhost",
+  "dialect": "mysql",
+  "operatorsAliases": false
+}
