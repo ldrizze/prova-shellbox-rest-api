@@ -48,7 +48,14 @@ module.exports = (function(){
 	}
 
 	async function read(req, res){
-		
+		try{
+			const task = await Task.findById(req.params.taskId);
+			if(!task) res.sendStatus(404);
+			else res.send(task);
+		}catch(e){
+			console.error(e);
+			res.send(e.toString(), 500);
+		}
 	}
 
 	async function update(req, res){
