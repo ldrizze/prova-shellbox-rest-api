@@ -58,19 +58,57 @@ module.exports = (function(){
 		try{
 			const task = await Task.findById(req.params.taskId);
 			if(!task) res.sendStatus(404);
-			else res.send(task);
+			else{
+				res.setHeader('Content-Type', 'application/json');
+				res.send(task);
+			}
 		}catch(e){
 			console.error(e);
 			res.send(e.toString(), 500);
 		}
 	}
 
+	/**
+	* Update a Task
+	*
+	* @param Object req Express reqsuition
+	* @param Object res Express response
+	* @return JSON The Task if success or 500 if fails
+	*/
 	async function update(req, res){
-
+		try{
+			const task = await Task.findById(req.params.taskId);
+			if(!task) res.sendStatus(404);
+			else{
+				task.update(req.body);
+				res.setHeader('Content-Type', 'application/json');
+				res.send(task);
+			}
+		}catch(e){
+			console.error(e);
+			res.send(e.toString(), 500);
+		}
 	}
 
+	/**
+	* Delete a Task
+	*
+	* @param Object req Express reqsuition
+	* @param Object res Express response
+	* @return string 200 OK if success or 500 if fails
+	*/
 	async function remove(req, res){
-		
+		try{
+			const task = await Task.findById(req.params.taskId);
+			if(!task) res.sendStatus(404);
+			else{
+				task.destroy();
+				res.sendStatus(200);
+			}
+		}catch(e){
+			console.error(e);
+			res.send(e.toString(), 500);
+		}
 	}
 
 	return {
