@@ -47,6 +47,13 @@ module.exports = (function(){
 		}
 	}
 
+	/**
+	* Read / Get one Task information
+	*
+	* @param Object req Express reqsuition
+	* @param Object res Express response
+	* @return JSON The Task if success or 500 if fails
+	*/
 	async function read(req, res){
 		try{
 			const task = await Task.findById(req.params.taskId);
