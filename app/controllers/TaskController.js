@@ -19,14 +19,14 @@ module.exports = (function(){
 			const tasks = await Task.findAll({
 				order: [
 					['id', 'DESC']
-				]				
+				]
 			});
 
 			res.setHeader('Content-Type', 'application/json');
 			res.send(tasks);
 		}catch(e){
 			console.error(e);
-			res.send(e.toString(), 500);
+			res.status(500).send(e.toString());
 		}
 	}
 
@@ -43,7 +43,7 @@ module.exports = (function(){
 			res.sendStatus(200);
 		}catch(e){
 			console.error(e);
-			res.send(e.toString(), 500);
+			res.status(500).send(e.toString());
 		}
 	}
 
@@ -64,7 +64,7 @@ module.exports = (function(){
 			}
 		}catch(e){
 			console.error(e);
-			res.send(e.toString(), 500);
+			res.status(500).send(e.toString());
 		}
 	}
 
@@ -86,7 +86,7 @@ module.exports = (function(){
 			}
 		}catch(e){
 			console.error(e);
-			res.send(e.toString(), 500);
+			res.status(500).send(e.toString());
 		}
 	}
 
@@ -107,7 +107,7 @@ module.exports = (function(){
 			}
 		}catch(e){
 			console.error(e);
-			res.send(e.toString(), 500);
+			res.status(500).send(e.toString());
 		}
 	}
 
