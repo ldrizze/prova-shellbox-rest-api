@@ -1,3 +1,4 @@
+require('dotenv').config(); // setup dotenv
 const express = require('express'),
   app = express(),
   port = process.env.PORT || 8080, // process.env.port for hosts enviroment
