@@ -15,11 +15,14 @@ module.exports = (function(){
 	* @return JSON list of Task
 	*/
 	async function list(req, res){
+		let page = parseInt(req.query.page || 1);
 		try{
-			const tasks = await Task.findAll({
+			const tasks = await Task.findAndCountAll({
 				order: [
 					['id', 'DESC']
-				]
+				],
+				limit: 10,
+				offset: 10 * (page-1)
 			});
 
 			res.setHeader('Content-Type', 'application/json');
@@ -40,7 +43,7 @@ module.exports = (function(){
 	async function create(req, res){
 		try{
 			Task.create(req.body);
-			res.sendStatus(200);
+			res.sendStatus(201);
 		}catch(e){
 			console.error(e);
 			res.status(500).send(e.toString());
