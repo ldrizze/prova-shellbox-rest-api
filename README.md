@@ -1,5 +1,5 @@
 # Notas do desenvolvedor
-O projeto por padrão utiliza as a porta _8080_. Pode ser alterar pela variável de ambiente _PORT_ ou adicionando a diretiva _PORT_ ao **.env**
+O projeto por padrão utiliza a porta _8080_. Pode ser alterar pela variável de ambiente _PORT_ ou adicionando a diretiva _PORT_ ao **.env**
 
 # 1. Instalação e configuração
 Antes de mais nada, clone do repositório: `git clone https://bitbucket.org/luisfedrizze/shellbox-rest/`
