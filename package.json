@@ -3,9 +3,12 @@
   "version": "0.0.1",
   "description": "A REST api for todo tasks.",
   "main": "server.js",
+  "directories": {
+    "test": "mocha"
+  },
   "scripts": {
     "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,9 @@
   "license": "MIT",
   "homepage": "https://bitbucket.org/luisfedrizze/shellbox-rest#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^6.0.2",
     "nodemon": "^1.18.10"
   },
   "dependencies": {
