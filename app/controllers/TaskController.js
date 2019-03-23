@@ -59,7 +59,7 @@ module.exports = (function(){
 	*/
 	async function read(req, res){
 		try{
-			const task = await Task.findById(req.params.taskId);
+			const task = await Task.findByPk(req.params.taskId);
 			if(!task) res.sendStatus(404);
 			else{
 				res.setHeader('Content-Type', 'application/json');
@@ -80,7 +80,7 @@ module.exports = (function(){
 	*/
 	async function update(req, res){
 		try{
-			const task = await Task.findById(req.params.taskId);
+			const task = await Task.findByPk(req.params.taskId);
 			if(!task) res.sendStatus(404);
 			else{
 				task.update(req.body);
@@ -102,7 +102,7 @@ module.exports = (function(){
 	*/
 	async function remove(req, res){
 		try{
-			const task = await Task.findById(req.params.taskId);
+			const task = await Task.findByPk(req.params.taskId);
 			if(!task) res.sendStatus(404);
 			else{
 				task.destroy();
